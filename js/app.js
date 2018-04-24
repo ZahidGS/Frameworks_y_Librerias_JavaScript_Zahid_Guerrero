@@ -195,7 +195,6 @@ function limpiartodo()
 }
 
 
-
 //FUNCION PARA AGREGAR NUEVOS DULCES
 function dulcesnuevos()
 {
