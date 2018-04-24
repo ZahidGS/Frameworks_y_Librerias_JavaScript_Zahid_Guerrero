@@ -1,5 +1,5 @@
 
-//
+// INICIA EL EFECTO DEL TITULO
 $(document).ready(function () {
 
 		setInterval(function(){
@@ -12,7 +12,7 @@ $(document).ready(function () {
 })
 
 
-//
+// INICIALIZA LAS VARIABLES Y ARRAYS
 var misfilas=0; 
 var miscolumnas=0;
 var nuevas=0;
@@ -37,7 +37,7 @@ var minutos=2;
 var segundos=0;
 
 
-//
+// FUNCIONES PARA EL EVENTO CLICK DEL BOTON REINICIO
 $(".btn-reinicio").click(function(){
   i=0;
   puntos=0;
@@ -62,7 +62,7 @@ $(".btn-reinicio").click(function(){
 
 
 
-//
+//FUNCION PARA AGREGAR LOS DULCES EN EL TABLERO AL INICIO
 function acomodar()
 {
   i=i+1
@@ -90,7 +90,7 @@ function acomodar()
 }
 
 
-//
+// LIMPIAR LA FILA DE MAS DE TRES DULCES 
 function limpiarhover()
 {
   matriz=0;
@@ -102,6 +102,7 @@ function limpiarhover()
       matriz=matriz+$(".col-"+j).children().length;
   }
 
+  //SI NO HAY 3 DULCES, AGREGA MAS DULCES AL TABLERO
   if(misfilas==0 && miscolumnas==0 && matriz!=49)
   {
       clearInterval(borrardulces);
@@ -109,7 +110,7 @@ function limpiarhover()
       newdulces=setInterval(function()
       {
         dulcesnuevos()
-      },600)
+      },500)
   }
   if(misfilas==1 || miscolumnas==1)
   {
@@ -140,6 +141,7 @@ function limpiarhover()
     });
   }
 
+  //BUSQUEDAS DE NUEVOS DULCES
   $(".elemento").droppable({
     drop: function (event, ui) {
       var dropped = ui.draggable;
@@ -164,7 +166,7 @@ function limpiarhover()
   });
 }
 
-//
+// FUNCION PARA CAMBIAR LA POSICION DE LOS DULCES
 jQuery.fn.swap = function(b)
 {
     b = jQuery(b)[0];
@@ -177,13 +179,13 @@ jQuery.fn.swap = function(b)
 };
 
 
-//
+//ANIMACION DEL MARCADOR
 function callback()
 {
     $( ".panel-score" ).animate({width:'100%'},4000);
 }
 
-//
+// BORRA LOS DULCES DEL TABLERO
 function limpiartodo()
 {
   for(var j=1;j<8;j++)
@@ -194,7 +196,7 @@ function limpiartodo()
 
 
 
-//
+//FUNCION PARA AGREGAR NUEVOS DULCES
 function dulcesnuevos()
 {
   $(".elemento").draggable({ disabled: true });
@@ -255,7 +257,7 @@ function dulcesnuevos()
 }
 
 
-//
+//FUNCION PARA BUSCAR DULCES POR FILA
 function filas()
 {
   var bh=0;
@@ -278,7 +280,7 @@ function filas()
   return bh;
 }
 
-//
+//FUNCION PARA BUSCAR DULCES POR COLUMNA
 function columnas()
 {
   var bv=0;
@@ -302,7 +304,7 @@ function columnas()
 }
 
 
-//
+//FUNCION PARA EL CRONOMETRO
 function timer()
 {
   if(segundos!=0)
